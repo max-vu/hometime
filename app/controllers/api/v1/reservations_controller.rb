@@ -2,11 +2,11 @@ module Api
   module V1
     class ReservationsController < BaseController
       def create
-        reservation = ReservationsService.save(reservation_params)
-        if reservation.errors.present?
-          render json: reservation.errors.to_json
-        else
+        reservation_service = ReservationsService.new(reservation_params)
+        if reservation_service.save
           render json: :ok
+        else
+          render json: reservation_service.errors.to_json, status: 422
         end
       end
 
