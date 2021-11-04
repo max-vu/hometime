@@ -1,5 +1,5 @@
 class ReservationsService
-  attr_accessor :errors
+  attr_reader :errors
 
   def initialize(params = {})
     @params = params
