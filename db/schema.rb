@@ -38,7 +38,6 @@ ActiveRecord::Schema.define(version: 2021_11_03_152730) do
     t.decimal "payout_price", default: "0.0"
     t.decimal "security_price", default: "0.0"
     t.decimal "total_price", default: "0.0"
-    t.decimal "expected_payout_amount", default: "0.0"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["code"], name: "index_reservations_on_code"

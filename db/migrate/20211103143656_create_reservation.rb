@@ -15,7 +15,6 @@ class CreateReservation < ActiveRecord::Migration[6.1]
       t.decimal  :payout_price, default: 0.0
       t.decimal  :security_price, default: 0.0
       t.decimal  :total_price, default: 0.0
-      t.decimal  :expected_payout_amount, default: 0.0
 
       t.timestamps
     end
