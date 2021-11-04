@@ -14,7 +14,7 @@ class ReservationsService
       true
     end
   rescue StandardError => e
-    @errors[:base] = e.message
+    @errors[:error] = e.message
 
     false
   end

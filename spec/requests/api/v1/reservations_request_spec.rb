@@ -28,7 +28,7 @@ RSpec.describe 'Api::V1::Reservations', type: :request do
 
     it 'returns status success' do
       post '/api/v1/reservations', params: params
-      expect(response).to have_http_status(:ok)
+      expect(response).to have_http_status(200)
       expect(Reservation.count).to eq(1)
       expect(Guest.count).to eq(1)
     end

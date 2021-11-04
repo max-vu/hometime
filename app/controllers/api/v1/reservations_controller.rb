@@ -4,9 +4,9 @@ module Api
       def create
         reservation_service = ReservationsService.new(reservation_params)
         if reservation_service.save
-          render json: :ok
+          render json: { data: { message: 'Your reservation is completed' } }, status: 200
         else
-          render json: reservation_service.errors.to_json, status: 422
+          render json: { data: reservation_service.errors }, status: 422
         end
       end
 
