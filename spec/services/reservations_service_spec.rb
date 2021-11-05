@@ -82,7 +82,7 @@ RSpec.describe ReservationsService , type: :service do
       it 'returns errors' do
         subject.save
 
-        expect(subject.errors[:base]).to match(/Start date Must not be in the past/)
+        expect(subject.errors[:error]).to match(/Start date Must not be in the past/)
       end
     end
   end

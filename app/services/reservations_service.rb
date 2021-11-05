@@ -41,8 +41,8 @@ class ReservationsService
     {
       code: @params[:code] || @params[:reservation_code],
       status: @params[:status] || @params[:status_type],
-      start_date: @params[:start_date],
-      end_date: @params[:end_date],
+      start_date: @params[:start_date] || @params[:check_in],
+      end_date: @params[:end_date]|| @params[:check_out],
       nights: @params[:nights],
       guests: @params[:guests] || @params[:number_of_guests],
       adults: @params[:adults] || @params.dig(:guest_details, :number_of_adults),
@@ -57,10 +57,10 @@ class ReservationsService
 
   def sanitize_guest_attributes
     {
-      email: @params[:guest_email] || @params[:guest][:email],
-      first_name: @params[:guest_first_name] || @params[:guest][:first_name],
-      last_name: @params[:guest_last_name] || @params[:guest][:last_name],
-      phone_numbers: @params[:guest_phone_numbers] || [@params[:guest][:phone]],
+      email: @params[:guest_email] || @params[:email] || @params[:guest][:email],
+      first_name: @params[:guest_first_name] || @params[:first_name] || @params[:guest][:first_name],
+      last_name: @params[:guest_last_name] || @params[:last_name] || @params[:guest][:last_name],
+      phone_numbers: @params[:guest_phone_numbers] || @params[:phone] || [@params[:guest][:phone]],
       localized_description: @params.dig(:guest_details, :localized_description)
     }
   end

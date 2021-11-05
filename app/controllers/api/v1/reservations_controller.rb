@@ -13,7 +13,27 @@ module Api
       private
 
       def reservation_params
-        if params[:reservation]
+        if params[:reservation] && params[:guest]
+          reservation_params = params.require(:reservation).permit(
+            :code,
+            :check_in,
+            :check_out,
+            :expected_payout_amount,
+            :listing_security_price_accurate,
+            :host_currency,
+            :nights,
+            :number_of_guests,
+            :status_type,
+            :total_paid_amount_accurate,
+          )
+          guest_params = params.require(:guest).permit(
+            :first_name,
+            :last_name,
+            :phone,
+            :email
+          )
+          reservation_params.merge(guest_params)
+        elsif params[:reservation]
           params.require(:reservation).permit(
             :code,
             :start_date,
