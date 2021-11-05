@@ -77,5 +77,28 @@ OR
     "number_of_guests": 4,
     "status_type": "accepted",
     "total_paid_amount_accurate": "4300.00"
-} }
+  }
+}
+
+OR
+{
+  "reservation": {
+    "code": "ZZZ12345678",
+    "check_in": "2021-05-12",
+    "check_out": "2021-05-16",
+    "expected_payout_amount": "3800.00",
+    "listing_security_price_accurate": "500.00",
+    "host_currency": "AUD",
+    "nights": 4,
+    "number_of_guests": 4,
+    "status_type": "accepted",
+    "total_paid_amount_accurate": "4300.00"
+  },
+  "guest": {
+    "first_name": "Wayne",
+    "last_name": "Woodbridge",
+    "phone": "639123456789",
+    "email": "wayne_woodbridge@bnb.com"
+  }
+}
 ```
